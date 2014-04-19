@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Bogumil Wrona]]></title>
+  <link href="http://bogwro.github.io/atom.xml" rel="self"/>
+  <link href="http://bogwro.github.io/"/>
+  <updated>2014-04-19T20:55:05+02:00</updated>
+  <id>http://bogwro.github.io/</id>
+  <author>
+    <name><![CDATA[Bogumil Wrona]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Linux Commands]]></title>
+    <link href="http://bogwro.github.io/blog/2014/03/30/linux-commands/"/>
+    <updated>2014-03-30T19:36:36+02:00</updated>
+    <id>http://bogwro.github.io/blog/2014/03/30/linux-commands</id>
+    <content type="html"><![CDATA[<p>List of most common Linux commands.</p>
+
+<!--more-->
+
+
+<h2>Login</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh user@host           <span class="c"># Connect to host as user</span>
+</span><span class='line'>ssh -p port user@host   <span class="c"># Connect to host using specific port</span>
+</span><span class='line'>telnet host             <span class="c"># Connect to the system using telnet port</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Directory Traverse</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span>          <span class="c"># Go to $HOME directory</span>
+</span><span class='line'><span class="nb">cd</span> ~        <span class="c"># Alias to: Go to $HOME directory</span>
+</span><span class='line'><span class="nb">cd</span> ..       <span class="c"># To go up one level of the directory tree</span>
+</span><span class='line'><span class="nb">cd</span> /var     <span class="c"># Change to /var directory</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>File Transfer</h2>
+
+<h3>scp</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>scp file.ext host:/path <span class="c">#Secure copy &quot;file.ext&quot; to remote host &quot;/path&quot; folder</span>
+</span><span class='line'>scp user@host:/path/*.txt /local_path   <span class="c"># Copy *.txt files from remote host to current system &quot;local_path&quot; folder</span>
+</span><span class='line'>scp -r user@host:/www /www/tmp <span class="c"># Copy all files and folders recursively from remote server to the current system /www/tmp folder</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>rsync</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rsync -a /home/docs /backup/ <span class="c"># Synchronize source to destination</span>
+</span><span class='line'>rsync -avz /home/docs user@host:/backup <span class="c"># Synchronize files/directories between the local and remote system with compression enabled</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Search</h2>
+
+<h3>grep</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>grep pattern files  <span class="c"># Search for pattern in files</span>
+</span><span class='line'>grep -r pattern PATH_TO_FOLDER <span class="c"># Search recursively for pattern in specific FOLDER</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>find</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>find PATH_TO_FOLDER -name <span class="s1">&#39;index*&#39;</span>  <span class="c"># Find files that name start with &quot;index&quot;</span>
+</span><span class='line'>find PATH_TO_FOLDER -size +1000k   <span class="c"># Find files larger than 1000k in folder</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Compression / Archives</h2>
+
+<h3>tar</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar cf archive.tar PATH_TO_FOLDER   <span class="c"># Create tar file containing what is inside specific folder</span>
+</span><span class='line'>tar xf archive.tar  <span class="c"># Extracts content</span>
+</span><span class='line'>tar czf archive.tar.gz PATH_TO_FOLDER   <span class="c"># Create a tar with gzip compression</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>gzip</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>gzip file   <span class="c"># Compress file and renames it to file.gz</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Permission</h2>
+
+<p><code>ls -l</code> displays permission related information</p>
+
+<h3>chmod</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>chmod OCTAL PATH_TO_FILE
+</span><span class='line'>chmod 777 PATH_TO_FILE  <span class="c"># Set rwx permission for owner, rwx permission for group, rwx permission for world</span>
+</span><span class='line'>chmod 755 PATH_TO_FILE  <span class="c"># Set rwx permission for owner, rx for group and world</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>chown</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>chown USER PATH_TO_FILE <span class="c"># Change owner of the file</span>
+</span><span class='line'>chown USER:GROUP PATH_TO_FOLDER <span class="c"># Change owner and group owner of the folder</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Users / Groups</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>adduser ben     <span class="c"># Add user &quot;ben&quot;</span>
+</span><span class='line'>usermod         <span class="c"># Modify user</span>
+</span><span class='line'>userdel ben     <span class="c"># Delete user &quot;ben&quot;</span>
+</span><span class='line'>groupadd admin  <span class="c"># Add group &quot;admin&quot;</span>
+</span><span class='line'>
+</span><span class='line'>useradd -c <span class="s2">&quot;John Doe&quot;</span> -g admin -m john  <span class="c"># Create user &quot;john&quot; and add to group &quot;admin&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Hardware</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>free -m <span class="c"># Used and free memory -m for MB</span>
+</span><span class='line'>hdparm -i /dev/sda  <span class="c"># Show info about disk &quot;sda&quot;</span>
+</span><span class='line'>hdparm -tT /dev/sda <span class="c"># Do a read speed test on disk &quot;sda&quot;</span>
+</span><span class='line'>badblocks -s /dev/sda   <span class="c"># Test for unreadable blocks on disk &quot;sda&quot;</span>
+</span><span class='line'>cat /proc/cpuinfo   <span class="c"># CPU model</span>
+</span><span class='line'>cat /proc/meminfo   <span class="c"># Memory info</span>
+</span><span class='line'>lspci -tv   <span class="c"># List PCI devices</span>
+</span><span class='line'>lsusb -tv   <span class="c"># List USB devices</span>
+</span><span class='line'>lshal       <span class="c"># List of all devices</span>
+</span><span class='line'>dmidecode   <span class="c"># Show hardware info from the BIOS</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>System</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>uname -a    <span class="c"># Display linux system information</span>
+</span><span class='line'>uname -r    <span class="c"># Display kernel release info</span>
+</span><span class='line'>uptime      <span class="c"># Show how long system is running</span>
+</span><span class='line'>hostname    <span class="c"># System host name</span>
+</span><span class='line'>hostname -i <span class="c"># Display IP address</span>
+</span><span class='line'>last reboot <span class="c"># Show system reboot history</span>
+</span><span class='line'>date        <span class="c"># Show current date and time</span>
+</span><span class='line'>cal         <span class="c"># Show this month calendar</span>
+</span><span class='line'>w           <span class="c"># Display who is online</span>
+</span><span class='line'>whoami      <span class="c"># Display who you are logged in as</span>
+</span><span class='line'>finger user <span class="c"># Display information about user</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>File Commands</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ls -al      <span class="c"># Display all information about files and dirs</span>
+</span><span class='line'><span class="nb">pwd</span>         <span class="c"># Show current directory path</span>
+</span><span class='line'>mkdir DIR   <span class="c"># Create a directory</span>
+</span><span class='line'>rm FILE     <span class="c"># Delete file</span>
+</span><span class='line'>rm -r DIR   <span class="c"># Delete directory recursively</span>
+</span><span class='line'>rm -f FILE  <span class="c"># Forcefully remove file</span>
+</span><span class='line'>cp F1 F2    <span class="c"># Copy File1 to File2</span>
+</span><span class='line'>cp -r D1 D2 <span class="c"># Copy Directory1 to Directory2 (create D2 if needed)</span>
+</span><span class='line'>mv F1 F2    <span class="c"># Move files from one place to another</span>
+</span><span class='line'>ln -s PATH LINK_NAME  <span class="c"># Create symbolic link to file or dir</span>
+</span><span class='line'>touch FILE  <span class="c"># Create or update file</span>
+</span><span class='line'>cat &gt; FILE  <span class="c"># Place standard input into file</span>
+</span><span class='line'>more FILE   <span class="c"># Output the content of file</span>
+</span><span class='line'>head FILE   <span class="c"># Output the first 10 lines of file</span>
+</span><span class='line'>tail FILE   <span class="c"># Output the last 10 lines of file</span>
+</span><span class='line'>tail -f FILE <span class="c"># Output the contents of file as it grows</span>
+</span><span class='line'>gpg -c FILE  <span class="c"># Encrypt file</span>
+</span><span class='line'>gpg FILE.gpg <span class="c"># Decrypt file</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Process Related</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ps          <span class="c"># Display currently active processes</span>
+</span><span class='line'>ps aux | grep <span class="s1">&#39;ssh&#39;</span> <span class="c"># Find all process id related to &quot;ssh&quot; process</span>
+</span><span class='line'>pmap        <span class="c"># Memory map of process</span>
+</span><span class='line'>top         <span class="c"># Display all running processes</span>
+</span><span class='line'><span class="nb">kill </span>PID    <span class="c"># Kill process with PID ID</span>
+</span><span class='line'>killall NAME <span class="c"># Kill all NAMEd processes</span>
+</span><span class='line'>pkill NAME  <span class="c"># Send signal to a process with its name</span>
+</span><span class='line'><span class="nb">bg</span> <span class="c"># Resumes suspended jobs without bringing them to foreground</span>
+</span><span class='line'><span class="nb">fg</span> <span class="c"># Brings the most recent job to foreground</span>
+</span><span class='line'><span class="nb">fg </span>N <span class="c"># Brings job N to the foreground</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+</feed>
