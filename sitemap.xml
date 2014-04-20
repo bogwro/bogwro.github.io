@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://bogwro.github.io/blog/2014/03/30/linux-commands/</loc>
+        <loc>http://www.wrona.io/blog/2014/03/30/linux-commands/</loc>
         <lastmod>2014-04-18T15:54:09+02:00</lastmod>
     </url>
     <url>
-        <loc>http://bogwro.github.io/about/</loc>
+        <loc>http://www.wrona.io/about/</loc>
         <lastmod>2014-04-19T19:28:46+02:00</lastmod>
     </url>
     <url>
-        <loc>http://bogwro.github.io/blog/archives/</loc>
+        <loc>http://www.wrona.io/blog/archives/</loc>
         <lastmod>2014-04-18T15:54:09+02:00</lastmod>
     </url>
     <url>
-        <loc>http://bogwro.github.io/contact/</loc>
-        <lastmod>2014-04-19T19:54:05+02:00</lastmod>
+        <loc>http://www.wrona.io/contact/</loc>
+        <lastmod>2014-04-19T23:02:02+02:00</lastmod>
     </url>
     <url>
-        <loc>http://bogwro.github.io/</loc>
+        <loc>http://www.wrona.io/</loc>
         <lastmod>2014-04-18T15:54:09+02:00</lastmod>
     </url>
     <url>
-        <loc>http://bogwro.github.io/robots.txt</loc>
+        <loc>http://www.wrona.io/robots.txt</loc>
         <lastmod>2014-03-30T19:00:12+02:00</lastmod>
     </url>
 </urlset>

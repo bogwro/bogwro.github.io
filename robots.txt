@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://bogwro.github.io/sitemap.xml 
+Sitemap: http://www.wrona.io/sitemap.xml 
