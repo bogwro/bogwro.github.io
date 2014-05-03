@@ -4,7 +4,7 @@
   <title><![CDATA[Bogumil Wrona]]></title>
   <link href="http://www.wrona.io/atom.xml" rel="self"/>
   <link href="http://www.wrona.io/"/>
-  <updated>2014-05-03T03:05:15+02:00</updated>
+  <updated>2014-05-03T03:08:33+02:00</updated>
   <id>http://www.wrona.io/</id>
   <author>
     <name><![CDATA[Bogumil Wrona]]></name>
@@ -76,33 +76,6 @@ and anything else:</p>
 </span><span class='line'><span class="p">};</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Test-driven Development for Angular Modules]]></title>
-    <link href="http://www.wrona.io/blog/2014/04/21/test-driven-development-for-angular-modules/"/>
-    <updated>2014-04-21T22:42:40+02:00</updated>
-    <id>http://www.wrona.io/blog/2014/04/21/test-driven-development-for-angular-modules</id>
-    <content type="html"><![CDATA[<h2>Make it run, then make it right, then make it fast.</h2>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mastering Ruby on Rails Engines]]></title>
-    <link href="http://www.wrona.io/blog/2014/04/21/mastering-ruby-on-rails-engines/"/>
-    <updated>2014-04-21T22:38:04+02:00</updated>
-    <id>http://www.wrona.io/blog/2014/04/21/mastering-ruby-on-rails-engines</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Set-up AngularJS in Ruby on Rails Web Application]]></title>
-    <link href="http://www.wrona.io/blog/2014/04/21/how-to-set-up-angularjs-for-ruby-on-rails-web-application/"/>
-    <updated>2014-04-21T22:36:02+02:00</updated>
-    <id>http://www.wrona.io/blog/2014/04/21/how-to-set-up-angularjs-for-ruby-on-rails-web-application</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
