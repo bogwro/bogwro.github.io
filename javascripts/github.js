@@ -21,7 +21,9 @@ var github = (function(){
           if (!data || !data.data) { return; }
           for (var i = 0; i < data.data.length; i++) {
             if (options.skip_forks && data.data[i].fork) { continue; }
-            repos.push(data.data[i]);
+            if(options.ignore_repos.indexOf(data.data[i].full_name) == -1) {
+              repos.push(data.data[i]);
+            }
           }
           if (options.count) { repos.splice(options.count); }
           render(options.target, repos);

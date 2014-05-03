@@ -5,12 +5,40 @@
         <lastmod>2014-04-18T15:54:09+02:00</lastmod>
     </url>
     <url>
+        <loc>http://www.wrona.io/blog/2014/04/06/javascript-programming-paradigms/</loc>
+        <lastmod>2014-05-03T02:58:46+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.wrona.io/blog/2014/04/10/functional-programming-in-javascript/</loc>
+        <lastmod>2014-05-03T02:54:13+02:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.wrona.io/blog/2014/04/21/how-to-set-up-angularjs-for-ruby-on-rails-web-application/
+        </loc>
+        <lastmod>2014-05-02T22:14:22+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.wrona.io/blog/2014/04/21/mastering-ruby-on-rails-engines/</loc>
+        <lastmod>2014-05-02T22:14:47+02:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.wrona.io/blog/2014/04/21/test-driven-development-for-angular-modules/
+        </loc>
+        <lastmod>2014-05-02T22:30:52+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.wrona.io/blog/2014/04/21/javascript-tips-and-tricks/</loc>
+        <lastmod>2014-05-03T02:52:21+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://www.wrona.io/about/</loc>
         <lastmod>2014-04-19T19:28:46+02:00</lastmod>
     </url>
     <url>
         <loc>http://www.wrona.io/blog/archives/</loc>
-        <lastmod>2014-04-18T15:54:09+02:00</lastmod>
+        <lastmod>2014-05-03T02:58:46+02:00</lastmod>
     </url>
     <url>
         <loc>http://www.wrona.io/contact/</loc>
@@ -18,7 +46,7 @@
     </url>
     <url>
         <loc>http://www.wrona.io/</loc>
-        <lastmod>2014-04-18T15:54:09+02:00</lastmod>
+        <lastmod>2014-05-03T02:58:46+02:00</lastmod>
     </url>
     <url>
         <loc>http://www.wrona.io/robots.txt</loc>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: JavaScript | Bogumil Wrona]]></title>
+  <link href="http://www.wrona.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://www.wrona.io/"/>
+  <updated>2014-05-03T03:05:15+02:00</updated>
+  <id>http://www.wrona.io/</id>
+  <author>
+    <name><![CDATA[Bogumil Wrona]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript Tips and Tricks]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/21/javascript-tips-and-tricks/"/>
+    <updated>2014-04-21T22:43:38+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/21/javascript-tips-and-tricks</id>
+    <content type="html"><![CDATA[<h2><code>this</code> keyword</h2>
+
+<p>``` javascript
+var func = function() { return this },</p>
+
+<pre><code>obj = { name: 'A', aFun: func };
+</code></pre>
+
+<p>obj.aFun(); //=> some global object, probably Window
+```</p>
+
+<h2>Testing Existance</h2>
+
+<p>Using the loose inequality operator <code>!=</code>,
+it is possible to destinguish between <code>null</code>, <code>undefined</code>
+and anything else:</p>
+
+<p>``` javascript
+function exist(arg) {
+  return arg != null;
+};</p>
+
+<p>// tests:
+console.log(exist(null));               //=> false
+console.log(exist(undefined));          //=> false
+console.log(exist({}.notThere));        //=> false
+console.log(exist((function() {}())));  //=> false
+console.log(exist(0));                  //=> true
+console.log(exist(false));              //=> true
+console.log(exist({}));                 //=> true
+console.log(exist([]));                 //=> true
+```</p>
+
+<h2>Testing Truthy</h2>
+
+<p><code>javascript
+function isTruthy(arg) {
+  return (arg !== false) &amp;&amp; exist(arg);
+};
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Test-driven Development for Angular Modules]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/21/test-driven-development-for-angular-modules/"/>
+    <updated>2014-04-21T22:42:40+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/21/test-driven-development-for-angular-modules</id>
+    <content type="html"><![CDATA[<h2>Make it run, then make it right, then make it fast.</h2>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to Set-up AngularJS in Ruby on Rails Web Application]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/21/how-to-set-up-angularjs-for-ruby-on-rails-web-application/"/>
+    <updated>2014-04-21T22:36:02+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/21/how-to-set-up-angularjs-for-ruby-on-rails-web-application</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Functional Programming in JavaScript]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/10/functional-programming-in-javascript/"/>
+    <updated>2014-04-10T22:48:16+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/10/functional-programming-in-javascript</id>
+    <content type="html"><![CDATA[<p><div class="wikipedia">
+  
+    <img src="//upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sound-icon.svg/45px-Sound-icon.svg.png" alt="Image from Wikipedia" />
+  
+  <h2>functional programming</h2>
+  <div>
+    <p>In <a href="http://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, <strong>functional programming</strong> is a <a href="http://en.wikipedia.org/wiki/Programming_paradigm" title="Programming paradigm">programming paradigm</a>, a style of building the structure and elements of computer programs, that treats <a href="http://en.wikipedia.org/wiki/Computation" title="Computation">computation</a> as the evaluation of <a href="http://en.wikipedia.org/wiki/Function_(mathematics)" title="Function (mathematics)">mathematical functions</a> and avoids <a href="http://en.wikipedia.org/wiki/Program_state" title="Program state" class="mw-redirect">state</a> and <a href="http://en.wikipedia.org/wiki/Immutable_object" title="Immutable object">mutable</a> data. Functional programming emphasizes <a href="http://en.wikipedia.org/wiki/Function_(computer_science)" title="Function (computer science)" class="mw-redirect">functions</a> that produce results that depend only on their inputs and not on the program state—i.e. <a href="http://en.wikipedia.org/wiki/Pure_function" title="Pure function">pure</a> <a href="http://en.wikipedia.org/wiki/Function_(mathematics)" title="Function (mathematics)">mathematical functions</a>. It is a <a href="http://en.wikipedia.org/wiki/Declarative_programming" title="Declarative programming">declarative programming</a> paradigm, which means programming is done with <a href="http://en.wikipedia.org/wiki/Expression_(computer_science)" title="Expression (computer science)">expressions</a>. In functional code, the output value of a function depends only on the arguments that are input to the function, so calling a function <i>f</i> twice with the same value for an argument <i>x</i> will produce the same result <i>f(x)</i> both times. Eliminating <a href="http://en.wikipedia.org/wiki/Side_effect_(computer_science)" title="Side effect (computer science)">side effects</a>, i.e. changes in state that do not depend on the function inputs, can make it much easier to understand and predict the behavior of a program, which is one of the key motivations for the development of functional programming.
+</p>
+  </div>
+  <a href="http://en.wikipedia.org/wiki/Functional programming">Read more</a>
+</div>
+</p>
+
+<p>``` javascript Examples
+// example 1:
+[&lsquo;A&rsquo;, &lsquo;B&rsquo;, &lsquo;C&rsquo;].forEach(alert);</p>
+
+<p>// example 2:
+var splat = function(fn) {
+  return function(array) {</p>
+
+<pre><code>return fn.apply(null, array);
+</code></pre>
+
+<p>  };
+}, unsplat = function(fn) {
+  return function() {</p>
+
+<pre><code>return fn.call(null, _.toArray(arguments));
+</code></pre>
+
+<p>  };
+};</p>
+
+<p>var addArrayElements = splat(function(x, y) {
+  return x + y;
+}),
+joinElements = unsplat(function(array) {
+  return array.join(&lsquo; &rsquo;);
+});</p>
+
+<p>console.log(addArrayElements([1, 2]));</p>
+
+<p>console.log(joinElements(1, 2));</p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript Programming Paradigms]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/06/javascript-programming-paradigms/"/>
+    <updated>2014-04-06T09:33:34+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/06/javascript-programming-paradigms</id>
+    <content type="html"><![CDATA[<p><div class="wikipedia">
+  
+    <img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Programming_paradigms.svg/250px-Programming_paradigms.svg.png" alt="Image from Wikipedia" />
+  
+  <h2>programming paradigm</h2>
+  <div>
+    <p>A <strong>programming paradigm</strong> is a fundamental style of <a href="http://en.wikipedia.org/wiki/Computer_programming" title="Computer programming">computer programming</a>, a way of building the structure and elements of computer programs.  Capablities and styles of various <a href="http://en.wikipedia.org/wiki/Programming_language" title="Programming language">programming languages</a> are defined by their supported programming <a href="http://en.wikipedia.org/wiki/Paradigm" title="Paradigm">paradigms</a>; some programming languages are designed to follow only one paradigm, while others support multiple paradigms.
+</p>
+  </div>
+  <a href="http://en.wikipedia.org/wiki/Programming paradigm">Read more</a>
+</div>
+</p>
+
+<blockquote><p>In JavaScript we can find multiple paradigms.</p></blockquote>
+
+<h2>Imperative Programming</h2>
+
+<p>That type of programming is based on describing actions.</p>
+
+<p>It is about thinking about algorithm which solves the problem and implementation of it, nothing more.</p>
+
+<h2>Prototype-based object-oriented programming</h2>
+
+<p>That type of programming is based on prototypical objects.</p>
+
+<h2>Functional / Metaprogramming</h2>
+
+<p>That type of programming is based on manipulation of execution model.</p>
+
+<!--more-->
+
+
+<h2>Examples</h2>
+
+<p>``` javascript Imperative Programming
+var numbers = [1, 2, 3, 4, 6, 10],</p>
+
+<pre><code>tripled = [];
+</code></pre>
+
+<p>for(var i = 0; i &lt; numbers.length; i++) {</p>
+
+<pre><code>var newNum = numbers[i] * 3;
+tripled.push(newNum);
+</code></pre>
+
+<p>};</p>
+
+<p>console.log(tripled); //=> [3, 6, 9, 12, 18, 30]
+```</p>
+
+<p>``` javascript Prototype-based object-oriented programming
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+};</p>
+
+<p>// creating new instance of Point:
+new Point(0, 10);  //=> {x: 0, y: 10}</p>
+
+<p>function Point3D(x, y, z) {
+  Point.call(this, x, y);
+  this.z = z;
+};</p>
+
+<p>// creating new instance of Point3D:
+new Point3D(0, 10, 20);  //=> {x: 0, y: 10, z: 20}
+```</p>
+
+<p>``` javascript Functional Programming / Metaprogramming
+[&lsquo;A&rsquo;, &lsquo;B&rsquo;, &lsquo;C&rsquo;].forEach(alert);</p>
+
+<p>```</p>
+
+<p>More about <a href="/blog/2014/04/10/functional-programming-in-javascript/">functional programming</a></p>
+]]></content>
+  </entry>
+  
+</feed>

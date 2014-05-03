@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby on Rails | Bogumil Wrona]]></title>
+  <link href="http://www.wrona.io/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
+  <link href="http://www.wrona.io/"/>
+  <updated>2014-05-03T03:05:15+02:00</updated>
+  <id>http://www.wrona.io/</id>
+  <author>
+    <name><![CDATA[Bogumil Wrona]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mastering Ruby on Rails Engines]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/21/mastering-ruby-on-rails-engines/"/>
+    <updated>2014-04-21T22:38:04+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/21/mastering-ruby-on-rails-engines</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>

@@ -155,9 +155,32 @@
     <link href="https://coderbits.com/content/widget/coderbits.css" media="all" rel="stylesheet" type="text/css">
     <style type="text/css">
         #coderbits {
-            margin: 10px 0 0 0;
+            margin: 10px 0 0 0;  width: 100% !important;
+            border: none !important;
+            background-image: none !important;
+            background-color: transparent !important;
+            color: #555 !important;
         }
+
+        #coderbits * {
+            font-size: 1.1em !important; text-shadow: none !important;
+        }
+        #coderbits h1  {border-bottom: 1px solid #000; line-height: 30px;}
+        #coderbits h1 a { color: #f2f2f2; }
+        #coderbits h1 a:hover { color: #e37000;}
+        #coderbits #coderbits-summary {padding: 0px !important;}
+        #coderbits #coderbits-avatar .avatar{ width: 48px; border-color:#f2f2f2; margin: 0 10px 10px 0; }
+        #coderbits #coderbits-skills {border-top-color:transparent !important; padding: 12px 0 0 0;}
+        #coderbits #coderbits-overview {margin-left: 50px; padding: 0px 0px 9px 9px;}
+        #coderbits #coderbits-stats {padding: 10px 0px 10px 0px;}
+        #coderbits #coderbits-stats-list li {width: 50%; margin: 0; border-bottom: 1px solid #000; font-size: .85em !important; padding-bottom: 10px;}
+        #coderbits #coderbits-stats-list li.last {padding-left: 0;}
+        #coderbits #coderbits-awards {display: none !important; }
+        #coderbits-skills h2 {color: #f2f2f2;}
+        #coderbits-stats-list li strong {color: #5fb709;}
+        #coderbits-stats-list li span {color: #555;}
     </style>
+
     <h1>Coderbits Portfolio</h1>
     <section id="coderbits" data-coderbits-username="bogwro"></section>
     <script src="https://coderbits.com/content/widget/coderbits.js"></script>
@@ -209,7 +232,23 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/03/30/linux-commands/">Linux Commands</a>
+        <a href="/blog/2014/04/21/javascript-tips-and-tricks/">JavaScript Tips and Tricks</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/21/test-driven-development-for-angular-modules/">Test-driven Development for Angular Modules</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/21/mastering-ruby-on-rails-engines/">Mastering Ruby on Rails Engines</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/21/how-to-set-up-angularjs-for-ruby-on-rails-web-application/">How to Set-up AngularJS in Ruby on Rails Web Application</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/10/functional-programming-in-javascript/">Functional Programming in JavaScript</a>
       </li>
     
   </ul>
@@ -220,6 +259,8 @@
   <ul id="gh_repos">
     <li class="loading">Status updating...</li>
   </ul>
+  
+  <a target="_blank" href="https://github.com/bogwro">@bogwro</a> on GitHub
   
   <script type="text/javascript">
     $(document).ready(function(){
@@ -235,7 +276,8 @@
             user: 'bogwro',
             count: 0,
             skip_forks: true,
-            target: '#gh_repos'
+            target: '#gh_repos',
+            ignore_repos: 'bogwro/bogwro.github.io,bogwro/wiki,bogwro/cesium-demo-rails'.split(',') || []
         });
     });
   </script>

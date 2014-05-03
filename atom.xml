@@ -4,7 +4,7 @@
   <title><![CDATA[Bogumil Wrona]]></title>
   <link href="http://www.wrona.io/atom.xml" rel="self"/>
   <link href="http://www.wrona.io/"/>
-  <updated>2014-04-20T14:20:59+02:00</updated>
+  <updated>2014-05-03T03:05:15+02:00</updated>
   <id>http://www.wrona.io/</id>
   <author>
     <name><![CDATA[Bogumil Wrona]]></name>
@@ -12,6 +12,278 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript Tips and Tricks]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/21/javascript-tips-and-tricks/"/>
+    <updated>2014-04-21T22:43:38+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/21/javascript-tips-and-tricks</id>
+    <content type="html"><![CDATA[<h2><code>this</code> keyword</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span> <span class="p">},</span>
+</span><span class='line'>    <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="nx">aFun</span><span class="o">:</span> <span class="nx">func</span> <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">obj</span><span class="p">.</span><span class="nx">aFun</span><span class="p">();</span> <span class="c1">//=&gt; some global object, probably Window</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Testing Existance</h2>
+
+<p>Using the loose inequality operator <code>!=</code>,
+it is possible to destinguish between <code>null</code>, <code>undefined</code>
+and anything else:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">exist</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">arg</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">;</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// tests:</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">exist</span><span class="p">(</span><span class="kc">null</span><span class="p">));</span>               <span class="c1">//=&gt; false</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">exist</span><span class="p">(</span><span class="kc">undefined</span><span class="p">));</span>          <span class="c1">//=&gt; false</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">exist</span><span class="p">({}.</span><span class="nx">notThere</span><span class="p">));</span>        <span class="c1">//=&gt; false</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">exist</span><span class="p">((</span><span class="kd">function</span><span class="p">()</span> <span class="p">{}())));</span>  <span class="c1">//=&gt; false</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">exist</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>                  <span class="c1">//=&gt; true</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">exist</span><span class="p">(</span><span class="kc">false</span><span class="p">));</span>              <span class="c1">//=&gt; true</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">exist</span><span class="p">({}));</span>                 <span class="c1">//=&gt; true</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">exist</span><span class="p">([]));</span>                 <span class="c1">//=&gt; true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Testing Truthy</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">isTruthy</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="p">(</span><span class="nx">arg</span> <span class="o">!==</span> <span class="kc">false</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">exist</span><span class="p">(</span><span class="nx">arg</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Test-driven Development for Angular Modules]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/21/test-driven-development-for-angular-modules/"/>
+    <updated>2014-04-21T22:42:40+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/21/test-driven-development-for-angular-modules</id>
+    <content type="html"><![CDATA[<h2>Make it run, then make it right, then make it fast.</h2>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mastering Ruby on Rails Engines]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/21/mastering-ruby-on-rails-engines/"/>
+    <updated>2014-04-21T22:38:04+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/21/mastering-ruby-on-rails-engines</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to Set-up AngularJS in Ruby on Rails Web Application]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/21/how-to-set-up-angularjs-for-ruby-on-rails-web-application/"/>
+    <updated>2014-04-21T22:36:02+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/21/how-to-set-up-angularjs-for-ruby-on-rails-web-application</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Functional Programming in JavaScript]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/10/functional-programming-in-javascript/"/>
+    <updated>2014-04-10T22:48:16+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/10/functional-programming-in-javascript</id>
+    <content type="html"><![CDATA[<div class="wikipedia">
+  
+    <img src="//upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sound-icon.svg/45px-Sound-icon.svg.png" alt="Image from Wikipedia" />
+  
+  <h2>functional programming</h2>
+  <div>
+    <p>In <a href="http://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, <strong>functional programming</strong> is a <a href="http://en.wikipedia.org/wiki/Programming_paradigm" title="Programming paradigm">programming paradigm</a>, a style of building the structure and elements of computer programs, that treats <a href="http://en.wikipedia.org/wiki/Computation" title="Computation">computation</a> as the evaluation of <a href="http://en.wikipedia.org/wiki/Function_(mathematics)" title="Function (mathematics)">mathematical functions</a> and avoids <a href="http://en.wikipedia.org/wiki/Program_state" title="Program state" class="mw-redirect">state</a> and <a href="http://en.wikipedia.org/wiki/Immutable_object" title="Immutable object">mutable</a> data. Functional programming emphasizes <a href="http://en.wikipedia.org/wiki/Function_(computer_science)" title="Function (computer science)" class="mw-redirect">functions</a> that produce results that depend only on their inputs and not on the program state—i.e. <a href="http://en.wikipedia.org/wiki/Pure_function" title="Pure function">pure</a> <a href="http://en.wikipedia.org/wiki/Function_(mathematics)" title="Function (mathematics)">mathematical functions</a>. It is a <a href="http://en.wikipedia.org/wiki/Declarative_programming" title="Declarative programming">declarative programming</a> paradigm, which means programming is done with <a href="http://en.wikipedia.org/wiki/Expression_(computer_science)" title="Expression (computer science)">expressions</a>. In functional code, the output value of a function depends only on the arguments that are input to the function, so calling a function <i>f</i> twice with the same value for an argument <i>x</i> will produce the same result <i>f(x)</i> both times. Eliminating <a href="http://en.wikipedia.org/wiki/Side_effect_(computer_science)" title="Side effect (computer science)">side effects</a>, i.e. changes in state that do not depend on the function inputs, can make it much easier to understand and predict the behavior of a program, which is one of the key motivations for the development of functional programming.
+</p>
+  </div>
+  <a href="http://en.wikipedia.org/wiki/Functional programming">Read more</a>
+</div>
+
+
+
+
+<figure class='code'><figcaption><span>Examples</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// example 1:</span>
+</span><span class='line'><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">alert</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// example 2:</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">splat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">array</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'><span class="p">},</span> <span class="nx">unsplat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">_</span><span class="p">.</span><span class="nx">toArray</span><span class="p">(</span><span class="nx">arguments</span><span class="p">));</span>
+</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">addArrayElements</span> <span class="o">=</span> <span class="nx">splat</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+</span><span class='line'><span class="p">}),</span>
+</span><span class='line'><span class="nx">joinElements</span> <span class="o">=</span> <span class="nx">unsplat</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">addArrayElements</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]));</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">joinElements</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript Programming Paradigms]]></title>
+    <link href="http://www.wrona.io/blog/2014/04/06/javascript-programming-paradigms/"/>
+    <updated>2014-04-06T09:33:34+02:00</updated>
+    <id>http://www.wrona.io/blog/2014/04/06/javascript-programming-paradigms</id>
+    <content type="html"><![CDATA[<div class="wikipedia">
+  
+    <img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Programming_paradigms.svg/250px-Programming_paradigms.svg.png" alt="Image from Wikipedia" />
+  
+  <h2>programming paradigm</h2>
+  <div>
+    <p>A <strong>programming paradigm</strong> is a fundamental style of <a href="http://en.wikipedia.org/wiki/Computer_programming" title="Computer programming">computer programming</a>, a way of building the structure and elements of computer programs.  Capablities and styles of various <a href="http://en.wikipedia.org/wiki/Programming_language" title="Programming language">programming languages</a> are defined by their supported programming <a href="http://en.wikipedia.org/wiki/Paradigm" title="Paradigm">paradigms</a>; some programming languages are designed to follow only one paradigm, while others support multiple paradigms.
+</p>
+  </div>
+  <a href="http://en.wikipedia.org/wiki/Programming paradigm">Read more</a>
+</div>
+
+
+<blockquote><p>In JavaScript we can find multiple paradigms.</p></blockquote>
+
+<h2>Imperative Programming</h2>
+
+<p>That type of programming is based on describing actions.</p>
+
+<p>It is about thinking about algorithm which solves the problem and implementation of it, nothing more.</p>
+
+<h2>Prototype-based object-oriented programming</h2>
+
+<p>That type of programming is based on prototypical objects.</p>
+
+<h2>Functional / Metaprogramming</h2>
+
+<p>That type of programming is based on manipulation of execution model.</p>
+
+<!--more-->
+
+
+<h2>Examples</h2>
+
+<figure class='code'><figcaption><span>Imperative Programming</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+</span><span class='line'>    <span class="nx">tripled</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">newNum</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">tripled</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">newNum</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tripled</span><span class="p">);</span> <span class="c1">//=&gt; [3, 6, 9, 12, 18, 30]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Prototype-based object-oriented programming</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// creating new instance of Point:</span>
+</span><span class='line'><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>  <span class="c1">//=&gt; {x: 0, y: 10}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">function</span> <span class="nx">Point3D</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">Point</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">this</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// creating new instance of Point3D:</span>
+</span><span class='line'><span class="k">new</span> <span class="nx">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>  <span class="c1">//=&gt; {x: 0, y: 10, z: 20}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Functional Programming / Metaprogramming</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">alert</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>More about <a href="http://www.wrona.io/blog/2014/04/10/functional-programming-in-javascript/">functional programming</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux Commands]]></title>
